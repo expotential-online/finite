@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "2.0.0"
     id("org.sonarqube") version "5.1.0.4882"
+    jacoco
 }
 
 group = "online.expotential"
@@ -20,6 +21,10 @@ tasks.test {
 
 kotlin {
     jvmToolchain(21)
+}
+
+tasks.jacocoTestReport {
+    reports.xml.required.set(true)
 }
 
 sonar {
