@@ -47,4 +47,48 @@ class SpaceBuildersTest {
         assertEquals("It is VALUE_ONE", space.describeItem(VALUE_ONE))
         assertEquals("It is VALUE_TWO", space.describeItem(VALUE_TWO))
     }
+
+    @Test
+    fun testFiniteSpaceForEnumClass() {
+        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+            .build()
+        assertEquals("TestingEnum", space.description())
+        assertEquals("Value [VALUE_ONE]", space.describeItem(VALUE_ONE))
+        assertEquals("Value [VALUE_TWO]", space.describeItem(VALUE_TWO))
+        assertEquals(setOf(VALUE_ONE, VALUE_TWO), space.items())
+    }
+
+    @Test
+    fun testFiniteSpaceForEnumClassWithOverriddenDescription() {
+        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+            .withDescription("A testing enumeration")
+            .build()
+        assertEquals("A testing enumeration", space.description())
+        assertEquals("Value [VALUE_ONE]", space.describeItem(VALUE_ONE))
+        assertEquals("Value [VALUE_TWO]", space.describeItem(VALUE_TWO))
+        assertEquals(setOf(VALUE_ONE, VALUE_TWO), space.items())
+    }
+
+    @Test
+    fun testFiniteSpaceForEnumClassWithOverriddenItemDescriber() {
+        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+            .withItemDescriber { "It is ${it.name}" }
+            .build()
+        assertEquals("TestingEnum", space.description())
+        assertEquals("It is VALUE_ONE", space.describeItem(VALUE_ONE))
+        assertEquals("It is VALUE_TWO", space.describeItem(VALUE_TWO))
+        assertEquals(setOf(VALUE_ONE, VALUE_TWO), space.items())
+    }
+
+    @Test
+    fun testFiniteSpaceForEnumClassWithOverriddenDescriptionAndItemDescriber() {
+        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+            .withDescription("A testing enumeration")
+            .withItemDescriber { "It is ${it.name}" }
+            .build()
+        assertEquals("A testing enumeration", space.description())
+        assertEquals("It is VALUE_ONE", space.describeItem(VALUE_ONE))
+        assertEquals("It is VALUE_TWO", space.describeItem(VALUE_TWO))
+        assertEquals(setOf(VALUE_ONE, VALUE_TWO), space.items())
+    }
 }
