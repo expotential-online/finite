@@ -6,4 +6,5 @@ data class StandardSpace<T> internal constructor(
 ) : Space<T> {
     override fun description(): String = description
     override fun describeItem(item: T): String = itemDescriber.invoke(item)
+    override fun toString(): String = "Space [$description]"
 }
