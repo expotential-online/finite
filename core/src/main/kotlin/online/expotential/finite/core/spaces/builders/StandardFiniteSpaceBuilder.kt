@@ -21,6 +21,7 @@ class StandardFiniteSpaceBuilder<T> internal constructor(
         apply { this.itemDescriberOrNull = itemDescriber }
 
     override fun build(): FiniteSpace<T> = StandardFiniteSpace(
+        spaceClass,
         descriptionOrNull ?: defaultSpaceDescription(spaceClass),
         items,
         itemDescriberOrNull ?: defaultItemDescriber()
