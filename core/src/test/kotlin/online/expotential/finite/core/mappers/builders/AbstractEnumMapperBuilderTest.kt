@@ -1,7 +1,6 @@
-package online.expotential.finite.core.mappers.v2.builder
+package online.expotential.finite.core.mappers.builders
 
 import online.expotential.finite.core.mappers.Mapper
-import online.expotential.finite.core.mappers.builders.AbstractEnumMapperBuilder
 import online.expotential.finite.core.mappers.definitions.Definition
 import online.expotential.finite.core.mappers.definitions.starters.EnumStarter
 import online.expotential.finite.core.mappers.exceptions.NotMappedException
@@ -25,7 +24,7 @@ class AbstractEnumMapperBuilderTest {
     @Test
     @DisplayName("should support overriding name")
     fun testNaming() {
-        val mapper = object : AbstractEnumMapperBuilder<TestingDomain, TestingRange>() {
+        object : AbstractEnumMapperBuilder<TestingDomain, TestingRange>() {
             override fun completeAndReturnDefinition(definition: EnumStarter): Definition<TestingDomain, TestingRange> {
                 return definition
                     .named("Animal mapper")
