@@ -11,8 +11,13 @@ repositories {
     mavenCentral()
 }
 
+val kotlinLoggingVersion = "3.0.5"
+val logbackVersion = "1.5.7"
+
 dependencies {
+    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
     testImplementation(kotlin("test"))
+    testImplementation("ch.qos.logback:logback-classic:$logbackVersion")
 }
 
 tasks.test {

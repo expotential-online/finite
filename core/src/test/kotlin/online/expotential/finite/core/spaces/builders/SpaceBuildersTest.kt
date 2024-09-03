@@ -50,7 +50,7 @@ class SpaceBuildersTest {
 
     @Test
     fun testFiniteSpaceForEnumClass() {
-        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+        val space = SpaceBuilders.finiteSpaceForEnumClass(TestingEnum::class.java)
             .build()
         assertEquals("TestingEnum", space.description())
         assertEquals("Value [VALUE_ONE]", space.describeItem(VALUE_ONE))
@@ -60,7 +60,7 @@ class SpaceBuildersTest {
 
     @Test
     fun testFiniteSpaceForEnumClassWithOverriddenDescription() {
-        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+        val space = SpaceBuilders.finiteSpaceForEnumClass(TestingEnum::class.java)
             .withDescription("A testing enumeration")
             .build()
         assertEquals("A testing enumeration", space.description())
@@ -71,7 +71,7 @@ class SpaceBuildersTest {
 
     @Test
     fun testFiniteSpaceForEnumClassWithOverriddenItemDescriber() {
-        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+        val space = SpaceBuilders.finiteSpaceForEnumClass(TestingEnum::class.java)
             .withItemDescriber { "It is ${it.name}" }
             .build()
         assertEquals("TestingEnum", space.description())
@@ -82,7 +82,7 @@ class SpaceBuildersTest {
 
     @Test
     fun testFiniteSpaceForEnumClassWithOverriddenDescriptionAndItemDescriber() {
-        val space = SpaceBuilders.finiteSpaceForEnumCLass(TestingEnum::class.java)
+        val space = SpaceBuilders.finiteSpaceForEnumClass(TestingEnum::class.java)
             .withDescription("A testing enumeration")
             .withItemDescriber { "It is ${it.name}" }
             .build()

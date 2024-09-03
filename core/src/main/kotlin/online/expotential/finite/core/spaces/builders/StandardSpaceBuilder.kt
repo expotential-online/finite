@@ -18,6 +18,7 @@ class StandardSpaceBuilder<T> internal constructor(private val spaceClass: Class
         apply { this.itemDescriberOrNull = itemDescriber }
 
     override fun build(): Space<T> = StandardSpace(
+        spaceClass,
         descriptionOrNull ?: defaultSpaceDescription(spaceClass),
         itemDescriberOrNull ?: defaultItemDescriber()
     )
