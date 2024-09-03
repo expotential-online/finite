@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test
 class StandardSpaceTest {
 
     @Test
+    fun testSpaceClass() {
+        val space = StandardSpace(Int::class.java, "Hello world") { "" }
+        assertEquals(Int::class.java, space.spaceClass())
+    }
+
+    @Test
     fun testDescription() {
         val space = StandardSpace(Int::class.java, "Hello world") { "" }
         assertEquals("Hello world", space.description())
