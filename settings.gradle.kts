@@ -5,5 +5,6 @@ plugins {
 rootProject.name = "finite"
 
 include(
-    "core"
+    "core",
+    "scala"
 )
