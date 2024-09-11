@@ -6,7 +6,7 @@ import online.expotential.finite.core.spaces.StandardFiniteSpace
 import online.expotential.finite.core.spaces.defaults.SpaceDefaults.defaultItemDescriber
 import online.expotential.finite.core.spaces.defaults.SpaceDefaults.defaultSpaceDescription
 
-class StandardFiniteSpaceBuilder<T> internal constructor(
+class StandardFiniteSpaceBuilder<T> (
     private val spaceClass: Class<T>,
     private val items: Set<T>
 ) : FiniteSpaceBuilder<T> {
