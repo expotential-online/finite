@@ -1,41 +1,16 @@
 plugins {
-    kotlin("jvm") version "2.0.0"
-    id("org.sonarqube") version "5.1.0.4882"
-    jacoco
+    id("kotlin-conventions")
+    id("maven-publication-conventions")
+    id("sonarqube-conventions")
 }
 
-group = "online.expotential"
-version = "1.0-SNAPSHOT"
+group = "io.github.expotential-online.finite"
+version = "0.0.1"
 
-repositories {
-    mavenCentral()
-}
-
-val kotlinLoggingVersion = "3.0.5"
-val logbackVersion = "1.5.7"
-
-dependencies {
-    implementation("io.github.microutils:kotlin-logging-jvm:$kotlinLoggingVersion")
-    testImplementation(kotlin("test"))
-    testImplementation("ch.qos.logback:logback-classic:$logbackVersion")
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(21)
-}
-
-tasks.jacocoTestReport {
-    reports.xml.required.set(true)
-}
-
-sonar {
-    properties {
-        property("sonar.projectKey", "expotential-online_finite")
-        property("sonar.organization", "expotential-online")
-        property("sonar.host.url", "https://sonarcloud.io")
-    }
-}
+//sonar {
+//    properties {
+//        property("sonar.projectKey", "expotential-online_finite")
+//        property("sonar.organization", "expotential-online")
+//        property("sonar.host.url", "https://sonarcloud.io")
+//    }
+//}
