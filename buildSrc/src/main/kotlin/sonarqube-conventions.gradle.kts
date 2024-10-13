@@ -1,10 +1,10 @@
 plugins {
-    id("kotlin-conventions")
-    id("maven-publication-conventions")
+    id("org.sonarqube")
 }
 
-group = "io.github.expotential-online.finite"
-version = "0.0.1"
+repositories {
+    mavenCentral()
+}
 
 //sonar {
 //    properties {
