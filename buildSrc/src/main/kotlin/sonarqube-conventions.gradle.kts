@@ -6,7 +6,7 @@ repositories {
     mavenCentral()
 }
 
-sonarqube {
+sonar {
     properties {
         property("sonar.projectKey", "expotential-online_finite")
         property("sonar.organization", "expotential-online")
