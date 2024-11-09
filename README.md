@@ -1,26 +1,31 @@
-![GitHub License](https://img.shields.io/github/license/expotential-online/finite)
-![GitHub last commit](https://img.shields.io/github/last-commit/expotential-online/finite)
-![GitHub language count](https://img.shields.io/github/languages/count/expotential-online/finite)
-![GitHub top language](https://img.shields.io/github/languages/top/expotential-online/finite)
-![Sonar Coverage](https://img.shields.io/sonar/coverage/expotential-online_finite?server=https%3A%2F%2Fsonarcloud.io)
-
+|           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Licencing | ![GitHub License](https://img.shields.io/github/license/expotential-online/finite)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Code      | ![GitHub language count](https://img.shields.io/github/languages/count/expotential-online/finite) ![GitHub top language](https://img.shields.io/github/languages/top/expotential-online/finite) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) |
+| Measures  | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=coverage)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=bugs)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite)                                                                                                                                                                                   | 
+| Ratings   | [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=expotential-online_finite&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=expotential-online_finite)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Activity  | ![GitHub last commit](https://img.shields.io/github/last-commit/expotential-online/finite)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 # Introduction
 
 ## Why Finite?
 
-Traditional conditional constructs such as if-else and switch are fundamental building blocks of control flow in most programming languages. Their usage is typically clear, concise and easily comprehensible by programmers familiar with any language.
+Traditional conditional constructs such as if-else and switch are fundamental building blocks of control flow in most
+programming languages. Their usage is typically clear, concise and easily comprehensible by programmers familiar with
+any language.
 
-Despite their ubiquity, these constructs have some inadequacies in certain circumstances and when considered from certain points of view. Specifically, for JVM languages:
+Despite their ubiquity, these constructs have some inadequacies in certain circumstances and when considered from
+certain points of view. Specifically, for JVM languages:
 
-1. Both constructs permit "default" behaviour for cases which have not specifically been accounted for. 
-2. 
+1. Both constructs permit "default" behaviour for cases which have not specifically been accounted for.
+2.
 
 ## Some alternative approaches
 
 ### "Rich" enums
 
-Consider an enum where each value corresponds to some string. One way to map each enum value to its corresponding string might be with a switch statement. 
+Consider an enum where each value corresponds to some string. One way to map each enum value to its corresponding string
+might be with a switch statement.
 
 ## Terminology
 
@@ -37,7 +42,7 @@ Consider an enum where each value corresponds to some string. One way to map eac
 
 ## Introduction
 
-A mapper defines a translation between one or more finite spaces and another (possibly non-finite space) 
+A mapper defines a translation between one or more finite spaces and another (possibly non-finite space)
 
 ## Implementing a New Mapping
 
@@ -46,12 +51,19 @@ New mappings are introduced by extending one of the abstract builder classes. Fo
 * AbstractEnumMapperBuilder
 * AbstractNonEnumMapperBuilder
 
-You must implement a single abstract method, which takes as an argument a _definition starter_ which is effectively a builder that you can direct with fluent method calls to flesh out the details of your mapping and the spaces involved.
+You must implement a single abstract method, which takes as an argument a _definition starter_ which is effectively a
+builder that you can direct with fluent method calls to flesh out the details of your mapping and the spaces involved.
 
 # Enforcement
 
-One of the reasons the existence of Finite is that JVM language compilers are typically incapable of policing certain _informal_ contracts. In particular, it cannot police the requirement that every value in the domain space of a mapping either corresponds to a value in the range space, or is equipped with an explicitly stated reason for not having a mapping.
+One of the reasons the existence of Finite is that JVM language compilers are typically incapable of policing certain
+_informal_ contracts. In particular, it cannot police the requirement that every value in the domain space of a mapping
+either corresponds to a value in the range space, or is equipped with an explicitly stated reason for not having a
+mapping.
 
-Trying to enforce such contracts at run-time is also sub-optimal. You'd rather not realise you missed something through a production outage.
+Trying to enforce such contracts at run-time is also sub-optimal. You'd rather not realise you missed something through
+a production outage.
 
-That is why Finite provides machinery to police adherence to contracts at test-time. By constructing a single unit test and applying the machinery to one or more package trees, it can detect and validate every defined mapping and fail with a full inventory or any problems.
+That is why Finite provides machinery to police adherence to contracts at test-time. By constructing a single unit test
+and applying the machinery to one or more package trees, it can detect and validate every defined mapping and fail with
+a full inventory or any problems.
