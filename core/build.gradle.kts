@@ -1,7 +1,7 @@
 plugins {
     id("kotlin-conventions")
     id("maven-publication-conventions")
-    id("sonarqube-conventions")
+//    id("sonarqube-conventions")
 }
 
 group = "io.github.expotential-online.finite"
