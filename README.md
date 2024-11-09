@@ -1,3 +1,10 @@
+![GitHub License](https://img.shields.io/github/license/expotential-online/finite)
+![GitHub last commit](https://img.shields.io/github/last-commit/expotential-online/finite)
+![GitHub language count](https://img.shields.io/github/languages/count/expotential-online/finite)
+![GitHub top language](https://img.shields.io/github/languages/top/expotential-online/finite)
+![Sonar Coverage](https://img.shields.io/sonar/coverage/expotential-online_finite?server=https%3A%2F%2Fsonarcloud.io)
+
+
 # Introduction
 
 ## Why Finite?
