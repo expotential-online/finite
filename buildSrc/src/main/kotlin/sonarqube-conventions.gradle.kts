@@ -13,3 +13,11 @@ sonar {
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
+
+subprojects {
+    sonar {
+        properties {
+            property("sonar.sources", "src")
+        }
+    }
+}
