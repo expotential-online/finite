@@ -9,5 +9,6 @@ rootProject.name = "finite"
 
 include(
     "core",
+    "enforcement",
     "scala"
 )
